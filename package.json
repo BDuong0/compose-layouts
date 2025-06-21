@@ -1,0 +1,49 @@
+{
+  "name": "compose-layouts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "cy:open": "cypress open",
+    "tokens:build": "node src/styles/tokens/compile-design-tokens.cjs",
+    "registry:build": "shadcn build"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.2",
+    "@stylexjs/stylex": "^0.12.0",
+    "@tailwindcss/vite": "^4.1.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.510.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "shadcn": "^2.7.0-canary.0",
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss": "^4.1.6"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/js": "^9.26.0",
+    "@stylexjs/babel-plugin": "^0.12.0",
+    "@stylexjs/postcss-plugin": "^0.12.0",
+    "@types/node": "^22.15.17",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.26.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.1.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tw-animate-css": "^1.2.9",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5"
+  }
+}

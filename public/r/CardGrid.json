@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "CardGrid",
+  "type": "registry:component",
+  "title": "Card Grid Layout",
+  "description": "A responsive grid layout where each grid item is uniform in size",
+  "files": [
+    {
+      "path": "src/components/CardGrid.tsx",
+      "content": "import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from \"react\";\r\n\r\ninterface CardGridProps extends ComponentPropsWithoutRef<\"div\">, AriaAttributes {\r\n  maxColumns: number;\r\n  gap: string; // gap is in pixels, because you rarely use rem or em for gap\r\n  minItemPixelWidth: string;\r\n  children: ReactNode;\r\n}\r\n\r\nexport default function CardGrid({\r\n  maxColumns,\r\n  gap,\r\n  minItemPixelWidth,\r\n  children,\r\n  ...props\r\n}: CardGridProps) {\r\n  const gap_count = maxColumns - 1;\r\n  const total_gap_pixelWidth = `${gap_count} * ${gap}`;\r\n  const itemMaxPixelWidth = `calc((100% - ${total_gap_pixelWidth}) / ${maxColumns})`;\r\n\r\n  return (\r\n    <div\r\n      style={{\r\n        display: \"grid\",\r\n        width: \"100%\",\r\n        gridTemplateColumns: `repeat(auto-fit, minmax(max(${minItemPixelWidth}, ${itemMaxPixelWidth}), 1fr))`,\r\n        gridGap: gap,\r\n      }}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

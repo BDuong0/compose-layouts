@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "HolyGrailLayout",
+  "type": "registry:component",
+  "title": "Holy Grail Layout",
+  "description": "A responsive grid layout with 5 sections: a header, left section, middle content, right section and footer",
+  "dependencies": [
+    "@stylexjs/stylex"
+  ],
+  "files": [
+    {
+      "path": "src/components/HolyGrailLayout.tsx",
+      "content": "import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from \"react\";\r\n\r\nimport * as stylex from \"@stylexjs/stylex\";\r\n\r\nconst styles = stylex.create({\r\n  main: {\r\n    display: \"grid\",\r\n    minHeight: \"100dvh\",\r\n    backgroundColor: {\r\n      default: \"red\",\r\n      \"@media (min-width: 768px)\": \"blue\",\r\n    },\r\n    // Set custom \"Left\" and \"Right\" Column size for what looks best for your website\r\n    gridTemplateColumns: {\r\n      default: \"1fr\",\r\n      \"@media (min-width: 768px)\": \"200px 1fr 200px\",\r\n    },\r\n    gridTemplateRows: {\r\n      default: \"auto minmax(75px, auto) 1fr minmax(75px, auto) auto\",\r\n      \"@media (min-width: 768px)\": \"auto 1fr auto\",\r\n    },\r\n    // I can add more than 2 gridTempalteAreas if looks best for your website\r\n    gridTemplateAreas: {\r\n      default: `\r\n        \"header\"\r\n        \"left\"\r\n        \"content\"\r\n        \"right\"\r\n        \"footer\"\r\n        `,\r\n      \"@media (min-width: 768px)\": `\r\n        \"header header header\"\r\n        \"left content right\"\r\n        \"footer footer footer\";\r\n        `,\r\n    },\r\n  },\r\n});\r\n\r\ntype HolyGrailLayoutProps = {\r\n  maxWidth?: string;\r\n  children: ReactNode;\r\n};\r\n\r\ninterface HolyGrailSectionProps\r\n  extends ComponentPropsWithoutRef<\"div\">,\r\n    AriaAttributes {\r\n  children: ReactNode;\r\n}\r\n\r\nexport default function HolyGrailLayout({ children }: HolyGrailLayoutProps) {\r\n  return <div {...stylex.props(styles.main)}>{children}</div>;\r\n}\r\n\r\nconst Header = ({ children, ...props }: HolyGrailSectionProps) => {\r\n  return (\r\n    <div style={{ gridArea: \"header\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nconst Left = ({ children, ...props }: HolyGrailSectionProps) => {\r\n  return (\r\n    <div style={{ gridArea: \"left\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nconst Content = ({ children, ...props }: HolyGrailSectionProps) => {\r\n  return (\r\n    <div style={{ gridArea: \"content\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nconst Right = ({ children, ...props }: HolyGrailSectionProps) => {\r\n  return (\r\n    <div style={{ gridArea: \"right\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nconst Footer = ({ children, ...props }: HolyGrailSectionProps) => {\r\n  return (\r\n    <div style={{ gridArea: \"footer\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nHolyGrailLayout.Header = Header;\r\nHolyGrailLayout.Left = Left;\r\nHolyGrailLayout.Content = Content;\r\nHolyGrailLayout.Right = Right;\r\nHolyGrailLayout.Footer = Footer;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

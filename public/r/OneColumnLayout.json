@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "OneColumnLayout",
+  "type": "registry:component",
+  "title": "One Column Layout",
+  "description": "A one column responsive container with a max-width on desktop to ultra wide screens",
+  "files": [
+    {
+      "path": "src/components/OneColumnLayout.tsx",
+      "content": "import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from \"react\";\r\n\r\ninterface OneColumnLayoutProps extends ComponentPropsWithoutRef<\"div\">, AriaAttributes {\r\n  maxWidth?: string;\r\n  children: ReactNode;\r\n}\r\n\r\nexport default function OneColumnLayout({\r\n  maxWidth = \"80ch\",\r\n  children,\r\n  ...props\r\n}: OneColumnLayoutProps) {\r\n  return (\r\n    <div style={{ maxWidth: `${maxWidth}`, marginInline: \"auto\" }} {...props}>\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

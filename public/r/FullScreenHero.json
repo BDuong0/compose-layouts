@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "FullScreenHero",
+  "type": "registry:component",
+  "title": "Full Screen Hero Layout",
+  "description": "A responsive one-column container divided into X sections that fill up the entire viewport with a max-width on desktop to ultra wide screens",
+  "dependencies": [
+    "tailwindcss"
+  ],
+  "files": [
+    {
+      "path": "src/components/FullScreenHero.tsx",
+      "content": "import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from \"react\";\r\n\r\ntype FullScreenHeroLayoutProps = {\r\n  maxWidth?: string;\r\n  rowGap: string;\r\n  children: ReactNode;\r\n};\r\n\r\ninterface FullSectionProps extends ComponentPropsWithoutRef<\"section\">, AriaAttributes {\r\n  children: ReactNode;\r\n}\r\n\r\nexport default function FullScreenHero({\r\n  maxWidth = \"1920px\",\r\n  rowGap,\r\n  children,\r\n}: FullScreenHeroLayoutProps) {\r\n  return (\r\n    <div\r\n      style={{ maxWidth: `${maxWidth}`, rowGap: `${rowGap}` }}\r\n      className=\"mx-auto flex flex-col\"\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\nconst FullSection = ({ children, ...props }: FullSectionProps) => {\r\n  return (\r\n    <section style={{ minHeight: \"100vh\" }} {...props}>\r\n      {children}\r\n    </section>\r\n  );\r\n};\r\n\r\nFullScreenHero.FullSection = FullSection;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

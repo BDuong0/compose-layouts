@@ -1,0 +1,109 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "CUBE_CSS_Containers",
+  "homepage": "https://localhost:3000",
+  "items": [
+    {
+      "name": "OneColumnLayout",
+      "type": "registry:component",
+      "title": "One Column Layout",
+      "description": "A one column responsive container with a max-width on desktop to ultra wide screens",
+      "files": [
+        {
+          "path": "src/components/OneColumnLayout.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "TwoColumnLayout",
+      "type": "registry:component",
+      "title": "Two Column Layout",
+      "description": "A two column responsive container with a max-width on desktop to ultra wide screens",
+      "files": [
+        {
+          "path": "src/components/TwoColumnLayout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["tailwindcss"]
+    },
+    {
+      "name": "ThreeColumnLayout",
+      "type": "registry:component",
+      "title": "Three Column Layout",
+      "description": "A three column responsive container with a max-width on desktop to ultra wide screens",
+      "files": [
+        {
+          "path": "src/components/ThreeColumnLayout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["tailwindcss"]
+    },
+    {
+      "name": "ThreeSectionLayout",
+      "type": "registry:component",
+      "title": "Three Section Layout",
+      "description": "A responsive one-column container divided into 3 sections for a header, content and footer with a max-width on desktop to ultra wide screens",
+      "files": [
+        {
+          "path": "src/components/ThreeSectionLayout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["tailwindcss"]
+    },
+    {
+      "name": "FullScreenHero",
+      "type": "registry:component",
+      "title": "Full Screen Hero Layout",
+      "description": "A responsive one-column container divided into X sections that fill up the entire viewport with a max-width on desktop to ultra wide screens",
+      "files": [
+        {
+          "path": "src/components/FullScreenHero.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["tailwindcss"]
+    },
+    {
+      "name": "CardGrid",
+      "type": "registry:component",
+      "title": "Card Grid Layout",
+      "description": "A responsive grid layout where each grid item is uniform in size",
+      "files": [
+        {
+          "path": "src/components/CardGrid.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "HolyGrailLayout",
+      "type": "registry:component",
+      "title": "Holy Grail Layout",
+      "description": "A responsive grid layout with 5 sections: a header, left section, middle content, right section and footer",
+      "files": [
+        {
+          "path": "src/components/HolyGrailLayout.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@stylexjs/stylex"]
+    },
+    {
+      "name": "BentoGrid",
+      "type": "registry:component",
+      "title": "Bento Grid Layout",
+      "description": "A responsive grid layout that's inspired by the traditional Japanese bento box",
+      "files": [
+        {
+          "path": "src/components/BentoGrid.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": ["@stylexjs/stylex"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "TwoColumnLayout",
+  "type": "registry:component",
+  "title": "Two Column Layout",
+  "description": "A two column responsive container with a max-width on desktop to ultra wide screens",
+  "dependencies": [
+    "tailwindcss"
+  ],
+  "files": [
+    {
+      "path": "src/components/TwoColumnLayout.tsx",
+      "content": "import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from \"react\";\r\n\r\ntype NestedTwoColumnLayoutProps = {\r\n  layoutLevel: \"nested\";\r\n  maxWidth?: never;\r\n  children: ReactNode;\r\n};\r\n\r\ntype RootTwoColumnLayoutProps = {\r\n  layoutLevel: \"root\";\r\n  maxWidth?: string;\r\n  children: ReactNode;\r\n};\r\n\r\ninterface ColumnProps extends ComponentPropsWithoutRef<\"div\">, AriaAttributes {\r\n  columnPercent?: number;\r\n  minWidth?: string;\r\n  children: ReactNode;\r\n}\r\n\r\nexport default function TwoColumnLayout({\r\n  layoutLevel,\r\n  maxWidth = \"1700px\",\r\n  children,\r\n}: NestedTwoColumnLayoutProps | RootTwoColumnLayoutProps) {\r\n  return (\r\n    <div\r\n      style={{ maxWidth: layoutLevel == \"root\" ? `${maxWidth}` : \"none\" }}\r\n      className={\r\n        layoutLevel == \"root\"\r\n          ? \"mx-auto flex w-dvw flex-wrap\"\r\n          : \"flex w-full flex-wrap\"\r\n      }\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n}\r\n\r\n// Control when TwoColumnLayout starts wrapping and unwrapping by changing the pixel value in 'min-w-[300px]'\r\nconst LeftColumn = ({\r\n  columnPercent = 50,\r\n  minWidth = \"0\",\r\n  children,\r\n  ...props\r\n}: ColumnProps) => {\r\n  return (\r\n    <div\r\n      style={{\r\n        flexBasis: `${columnPercent}%`,\r\n        minWidth: `${minWidth}`,\r\n        flexGrow: 1,\r\n      }}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nconst RightColumn = ({\r\n  columnPercent = 50,\r\n  minWidth = \"0\",\r\n  children,\r\n  ...props\r\n}: ColumnProps) => {\r\n  return (\r\n    <div\r\n      style={{\r\n        flexBasis: `${columnPercent}%`,\r\n        minWidth: `${minWidth}`,\r\n        flexGrow: 1,\r\n      }}\r\n      {...props}\r\n    >\r\n      {children}\r\n    </div>\r\n  );\r\n};\r\n\r\nTwoColumnLayout.LeftColumn = LeftColumn;\r\nTwoColumnLayout.RightColumn = RightColumn;\r\n",
+      "type": "registry:component"
+    }
+  ]
+}
