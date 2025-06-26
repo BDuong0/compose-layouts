@@ -7,6 +7,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "compose-layouts",
+      components: {
+        Header: "./src/components/Header.astro",
+      },
       social: [
         {
           icon: "github",
