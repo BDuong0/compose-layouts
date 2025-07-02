@@ -25,6 +25,7 @@ export default defineConfig({
         },
       ],
       sidebar: [
+        { slug: "guides/introduction" },
         {
           label: "Guides",
           items: [
