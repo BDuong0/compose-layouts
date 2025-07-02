@@ -27,10 +27,9 @@ export default defineConfig({
       sidebar: [
         { slug: "guides/introduction" },
         {
-          label: "Guides",
+          label: "Components",
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
+            { label: "One Column", slug: "guides/components/one-column" },
           ],
         },
       ],
