@@ -33,11 +33,6 @@ export default defineConfig({
             { label: "Example Guide", slug: "guides/example" },
           ],
         },
-        { slug: "guides/introduction" },
-        {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
-        },
       ],
     }),
     react(),
