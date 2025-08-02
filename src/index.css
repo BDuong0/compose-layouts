@@ -111,6 +111,22 @@
 @layer base {
   @import "./styles//global_styles.css";
 
+  /* Improved headings in supported browsers */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /* prevent orphans in supported browsers */
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
