@@ -14,6 +14,7 @@
     "registry:build": "shadcn build"
   },
   "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
     "@stylexjs/stylex": "^0.14.2",
     "@tailwindcss/vite": "^4.1.11",
