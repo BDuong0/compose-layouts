@@ -35,6 +35,10 @@ const components: component = {
     mdxFilename: "bento-grid",
     demoPath: "src/components/demos/BentoGrid/",
   },
+  "NavBar": {
+    mdxFilename: "simple-navbar",
+    demoPath: "src/components/demos/NavBar/"
+  }
 };
 
 export default components;
