@@ -1,13 +1,15 @@
-import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
+import { AriaAttributes, ComponentPropsWithoutRef, createContext, CSSProperties, ReactNode, useContext } from "react";
 
-type NestedThreeColumnLayoutProps = {
+interface NestedThreeColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   layoutLevel: "nested";
+  gap?: string;
   maxWidth?: never;
   children: ReactNode;
 };
 
-type RootThreeColumnLayoutProps = {
+interface RootThreeColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   layoutLevel: "root";
+  gap?: string;
   maxWidth?: string;
   children: ReactNode;
 };
@@ -18,22 +20,41 @@ interface ColumnProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   children: ReactNode;
 }
 
+type ThreeColumnLayoutContext = {
+  gap: string;
+};
+const ThreeColumnContext = createContext<ThreeColumnLayoutContext>({gap: "0px"});
+
 export default function ThreeColumnLayout({
   layoutLevel,
+  gap = "0px",
   maxWidth = "1700px",
   children,
+  ...props
 }: NestedThreeColumnLayoutProps | RootThreeColumnLayoutProps) {
+  
+  const baseLayoutStyles : CSSProperties = {
+    display: "flex",
+    width: "100%",
+    gap: gap,
+    flexWrap: "wrap",
+    maxWidth: "none"
+  }
+
+  const rootLayoutStyles : CSSProperties = {
+    marginInline: "auto",
+    maxWidth: maxWidth
+  }
+  
   return (
-    <div
-      style={{ maxWidth: layoutLevel == "root" ? `${maxWidth}` : "none" }}
-      className={
-        layoutLevel == "root"
-          ? "mx-auto flex w-full flex-wrap"
-          : "flex w-full flex-wrap"
-      }
-    >
-      {children}
-    </div>
+    <ThreeColumnContext.Provider value={{gap: gap}}>
+      <div
+        style={layoutLevel == "root" ? {...baseLayoutStyles, ...rootLayoutStyles} : {...baseLayoutStyles,} }
+        {...props}
+      >
+        {children}
+      </div>
+    </ThreeColumnContext.Provider>
   );
 }
 
@@ -44,10 +65,12 @@ const LeftColumn = ({
   children,
   ...props
 }: ColumnProps) => {
+  const { gap } = useContext(ThreeColumnContext)
+  
   return (
     <div
       style={{
-        flexBasis: `${columnPercent}%`,
+        flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
         flexGrow: 1,
       }}
@@ -64,10 +87,12 @@ const MiddleColumn = ({
   children,
   ...props
 }: ColumnProps) => {
+  const { gap } = useContext(ThreeColumnContext)
+  
   return (
     <div
       style={{
-        flexBasis: `${columnPercent}%`,
+        flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
         flexGrow: 1,
       }}
@@ -84,10 +109,12 @@ const RightColumn = ({
   children,
   ...props
 }: ColumnProps) => {
+  const { gap } = useContext(ThreeColumnContext)
+  
   return (
     <div
       style={{
-        flexBasis: `${columnPercent}%`,
+        flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
         flexGrow: 1,
       }}
