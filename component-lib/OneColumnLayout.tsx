@@ -5,7 +5,7 @@ interface OneColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttr
   children: ReactNode;
 }
 
-export default function OneColumnLayout({
+export function OneColumnLayout({
   maxWidth = "80ch",
   children,
   ...props
