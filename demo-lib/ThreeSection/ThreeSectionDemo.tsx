@@ -1,4 +1,4 @@
-import ThreeSectionLayout from "../../ThreeSectionLayout";
+import ThreeSectionLayout from "../../../../lib/components/ThreeSectionLayout";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

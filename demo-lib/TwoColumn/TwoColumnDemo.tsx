@@ -1,4 +1,4 @@
-import TwoColumnLayout from "../../TwoColumnLayout";
+import TwoColumnLayout from "../../../../lib/components/TwoColumnLayout.js";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

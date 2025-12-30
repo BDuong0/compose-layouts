@@ -1,4 +1,4 @@
-import FullScreenHero from "../../FullScreenHero";
+import FullScreenHero from "../../../../lib/components/FullScreenHero";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

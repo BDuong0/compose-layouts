@@ -1,4 +1,4 @@
-import BentoGrid from "../../BentoGrid";
+import BentoGrid from "../../../../lib/components/BentoGrid";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

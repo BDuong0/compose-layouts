@@ -1,4 +1,4 @@
-import HolyGrailLayout from "../../HolyGrailLayout";
+import HolyGrailLayout from "../../../../lib/components/HolyGrailLayout";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

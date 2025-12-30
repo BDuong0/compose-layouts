@@ -1,4 +1,8 @@
-import {NavBar, NavBarLogo, NavBarOpenTrigger} from "../../NavBar.js";
+import {
+  NavBar,
+  NavBarLogo,
+  NavBarOpenTrigger,
+} from "../../../../lib/components/NavBar.js";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
@@ -11,7 +15,7 @@ createRoot(document.getElementById("root")!).render(
         <img width={50} src="https://vite.dev/logo.svg" alt="Vite logo" />
       </NavBarLogo>
 
-      <NavBarOpenTrigger/>
+      <NavBarOpenTrigger />
     </NavBar>
   </StrictMode>,
 );
