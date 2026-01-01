@@ -3,7 +3,7 @@ import {
   createAnimateToggleContext,
   useAnimateToggle,
   useAnimateToggleContext,
-} from "@/hooks/useAnimateToggle";
+} from "./hooks/useAnimateToggle";
 import { useMediaQuery } from "usehooks-ts";
 import {
   AriaAttributes,
