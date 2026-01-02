@@ -48,7 +48,7 @@ interface HolyGrailSectionProps
   children: ReactNode;
 }
 
-export default function HolyGrailLayout({ children }: HolyGrailLayoutProps) {
+export function HolyGrailLayout({ children }: HolyGrailLayoutProps) {
   return <div {...stylex.props(styles.main)}>{children}</div>;
 }
 

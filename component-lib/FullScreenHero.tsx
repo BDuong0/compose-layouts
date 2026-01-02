@@ -10,7 +10,7 @@ interface FullSectionProps extends ComponentPropsWithoutRef<"section">, AriaAttr
   children: ReactNode;
 }
 
-export default function FullScreenHero({
+export function FullScreenHero({
   maxWidth = "1920px",
   rowGap,
   children,

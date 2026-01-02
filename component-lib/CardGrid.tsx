@@ -7,7 +7,7 @@ interface CardGridProps extends ComponentPropsWithoutRef<"div">, AriaAttributes 
   children: ReactNode;
 }
 
-export default function CardGrid({
+export function CardGrid({
   maxColumns,
   gap,
   minItemPixelWidth,

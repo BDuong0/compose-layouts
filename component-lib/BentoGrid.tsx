@@ -68,7 +68,7 @@ const styles = stylex.create({
   }),
 });
 
-export default function BentoGrid({
+export function BentoGrid({
   numOfItems,
   gap = "0",
   layoutNum,

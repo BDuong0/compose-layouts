@@ -18,7 +18,7 @@ interface ColumnProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   children: ReactNode;
 }
 
-export default function TwoColumnLayout({
+export function TwoColumnLayout({
   layoutLevel,
   maxWidth = "1700px",
   children,

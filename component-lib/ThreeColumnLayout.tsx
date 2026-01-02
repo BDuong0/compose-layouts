@@ -25,7 +25,7 @@ type ThreeColumnLayoutContext = {
 };
 const ThreeColumnContext = createContext<ThreeColumnLayoutContext>({gap: "0px"});
 
-export default function ThreeColumnLayout({
+export function ThreeColumnLayout({
   layoutLevel,
   gap = "0px",
   maxWidth = "1700px",

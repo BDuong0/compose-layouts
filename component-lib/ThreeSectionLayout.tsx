@@ -9,7 +9,7 @@ interface ColumnProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   children: ReactNode;
 }
 
-export default function ThreeSectionLayout({
+export function ThreeSectionLayout({
   maxWidth = "1600px",
   children,
 }: ThreeSectionLayoutProps) {
