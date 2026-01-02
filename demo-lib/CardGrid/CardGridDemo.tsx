@@ -1,9 +1,9 @@
-import CardGrid from "../../../../lib/components/CardGrid.tsx";
+import { CardGrid } from "@components/CardGrid";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../index.css";
-import "../../../index2.css";
+import "@/index.css";
+import "@/index2.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

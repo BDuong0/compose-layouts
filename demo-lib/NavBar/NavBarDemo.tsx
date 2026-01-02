@@ -2,11 +2,11 @@ import {
   NavBar,
   NavBarLogo,
   NavBarOpenTrigger,
-} from "../../../../lib/components/NavBar.js";
+} from "@components/NavBar";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../page_setup.js";
+import "@/page_setup.js";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -1,8 +1,8 @@
-import TwoColumnLayout from "../../../../lib/components/TwoColumnLayout.js";
+import { TwoColumnLayout } from "@components/TwoColumnLayout";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../page_setup.js";
+import "@/page_setup.js";
 
 import { Button } from "@/components/ui/button";
 

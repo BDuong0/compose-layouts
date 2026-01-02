@@ -1,9 +1,9 @@
-import ThreeColumnLayout from "../../../../lib/components/ThreeColumnLayout.js";
+import { ThreeColumnLayout } from "@components/ThreeColumnLayout";
 import Navbar from "./Navbar";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../page_setup.js";
+import "@/page_setup.js";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

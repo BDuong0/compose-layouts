@@ -1,9 +1,9 @@
-import FullScreenHero from "../../../../lib/components/FullScreenHero";
+import { FullScreenHero } from "@components/FullScreenHero";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../index.css";
-import "../../../index2.css";
+import "@/index.css";
+import "@/index2.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

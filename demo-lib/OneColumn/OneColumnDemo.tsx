@@ -1,8 +1,8 @@
-import OneColumnLayout from "../../../../lib/components/OneColumnLayout.js";
+import { OneColumnLayout } from "@components/OneColumnLayout";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "../../../page_setup.js";
+import "@/page_setup.js";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
