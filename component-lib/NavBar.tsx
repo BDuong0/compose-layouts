@@ -148,7 +148,7 @@ const NavBarOpenTrigger = ({
   className = "block cursor-pointer rounded px-2 py-2 transition-colors hover:bg-[#44403b] md:hidden",
 }: NavBarMenuOpenTriggerProps) => {
   const { show } = useAnimateToggle();
-  const { refObject, getElementRef } = useAnimateToggleContext(AnimateToggleContext);
+  const { refObject, } = useAnimateToggleContext(AnimateToggleContext);
 
   return (
     <button
@@ -160,18 +160,6 @@ const NavBarOpenTrigger = ({
       {children}
     </button>
   );
-};
-
-interface NavBarMenuContentProps extends ComponentPropsWithoutRef<"button"> {
-  showMobileStyles?: CSSProperties;
-  showDesktopStyles?: CSSProperties;
-  children?: ReactNode;
-}
-
-const NavBarMenuContent = () => {
-  const {getElementRef} = useAnimateToggleContext(AnimateToggleContext);
-
-  return <div ref={getElementRef}></div>;
 };
 
 interface NavBarMenuCloseTrigger {
