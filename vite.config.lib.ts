@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'component-lib/index.ts'),
-      name: 'ComposeLayouts',
+      name: 'compose-layouts',
       fileName: 'compose-layouts'
     },
     rollupOptions: {
