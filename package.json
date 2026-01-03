@@ -1,7 +1,14 @@
 {
   "name": "compose-layouts",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A React component library that has a set of componen-agnostic layout components that allows you to put components together into a layout",
+  "keywords": ["react", "react-component", "component", "reactjs"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BDuong0/compose-layouts"
+  },
   "type": "module",
   "files": ["dist"],
   "main": "./dist/compose-layouts.umd.cjs",
