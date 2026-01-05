@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'component-lib/index.ts'),
       name: 'compose-layouts',
-      fileName: 'compose-layouts'
+      formats: ['es']
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
@@ -16,7 +16,10 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM'
-        }
+        },
+        preserveModules: true,
+        preserveModulesRoot: 'component-lib',
+        exports: "named"
       }
     }
   }
