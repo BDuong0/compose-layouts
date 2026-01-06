@@ -43,6 +43,10 @@
     "tokens:build": "node src/styles/tokens/append-design-tokens.cjs",
     "registry:build": "shadcn build"
   },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
