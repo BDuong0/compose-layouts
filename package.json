@@ -11,16 +11,20 @@
   },
   "type": "module",
   "files": ["dist"],
-  "main": "./dist/compose-layouts.umd.cjs",
-  "module": "./dist/compose-layouts.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/compose-layouts.js",
-      "require": "./dist/compose-layouts.umd.cjs"
+      "import": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/*.js"
     }
   },
+  "sideEffects": false,
   "scripts": {
     "dev": "vite --host",
     "build": "tsc -b && vite build",
