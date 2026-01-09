@@ -144,7 +144,7 @@ const ItemOne = ({ children, className="", ...props }: BentoGridItemProps) => {
 
 const ItemTwo = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div className={twMerge(`bg-blue-300 row-[two/two] col-[two/two]`, className)}>
+    <div className={twMerge(`bg-blue-300 row-[two/two] col-[two/two]`, className)} {...props}>
       {children}
     </div>
   );
