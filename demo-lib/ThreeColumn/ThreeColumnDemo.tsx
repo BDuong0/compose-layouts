@@ -49,7 +49,7 @@ createRoot(document.getElementById("root")!).render(
         </ul>
       </ThreeColumnLayout.LeftColumn>
 
-      <ThreeColumnLayout.MiddleColumn>
+      <ThreeColumnLayout.MiddleColumn className="px-1">
         <div className="flex justify-center">
           <img
             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fshapingyouth.org%2Fwp-content%2Fuploads%2F2014%2F06%2FBigorexia-graphic.jpg&f=1&nofb=1&ipt=dafdceae2df38dcf31780508391dd0a441d6c83685e53d822c079ba1c860daf6"
@@ -70,7 +70,7 @@ createRoot(document.getElementById("root")!).render(
         </a>
       </ThreeColumnLayout.MiddleColumn>
 
-      <ThreeColumnLayout.RightColumn>
+      <ThreeColumnLayout.RightColumn className="pr-1">
         <div className="flex">
           <div className="basis-[30%]">
             <img

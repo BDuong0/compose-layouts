@@ -7,7 +7,7 @@ import "@/index2.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThreeSectionLayout>
+    <ThreeSectionLayout className="border-0">
       <ThreeSectionLayout.Header className="bg-yellow-400">
         <p>Header</p>
       </ThreeSectionLayout.Header>

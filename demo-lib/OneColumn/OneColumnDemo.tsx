@@ -6,7 +6,7 @@ import "@/page_setup.js";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <OneColumnLayout maxWidth="60ch">
+    <OneColumnLayout maxWidth="60ch" className="border-0">
       <h1>What I wish I knew before starting college</h1>
 
       <h2>Introduction</h2>

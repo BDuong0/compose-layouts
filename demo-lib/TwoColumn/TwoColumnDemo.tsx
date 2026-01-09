@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <TwoColumnLayout layoutLevel="root">
+    <TwoColumnLayout layoutLevel="root" className="border-0">
       <TwoColumnLayout.LeftColumn
         columnPercent={50}
         minWidth="515px"
