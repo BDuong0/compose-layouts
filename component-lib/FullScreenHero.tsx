@@ -1,6 +1,7 @@
 import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
-type FullScreenHeroLayoutProps = {
+interface FullScreenHeroLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   maxWidth?: string;
   rowGap: string;
   children: ReactNode;
@@ -14,20 +15,23 @@ export function FullScreenHero({
   maxWidth = "1920px",
   rowGap,
   children,
+  className = "",
+  ...props
 }: FullScreenHeroLayoutProps) {
   return (
     <div
       style={{ maxWidth: `${maxWidth}`, rowGap: `${rowGap}` }}
-      className="mx-auto flex flex-col"
+      className={twMerge(`mx-auto flex flex-col`, className)}
+      {...props}
     >
       {children}
     </div>
   );
 }
 
-const FullSection = ({ children, ...props }: FullSectionProps) => {
+const FullSection = ({ children, className = "", ...props}: FullSectionProps) => {
   return (
-    <section style={{ minHeight: "100vh" }} {...props}>
+    <section className={twMerge("min-h-screen", className)} {...props}>
       {children}
     </section>
   );

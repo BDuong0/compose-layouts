@@ -1,4 +1,5 @@
 import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
+import { twMerge } from 'tailwind-merge'
 
 interface CardGridProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   maxColumns: number;
@@ -12,20 +13,21 @@ export function CardGrid({
   gap,
   minItemPixelWidth,
   children,
+  className = "",
   ...props
 }: CardGridProps) {
   const gap_count = maxColumns - 1;
   const total_gap_pixelWidth = `${gap_count} * ${gap}`;
   const itemMaxPixelWidth = `calc((100% - ${total_gap_pixelWidth}) / ${maxColumns})`;
+  const gridTemplateColumns = `repeat(auto-fit, minmax(max(${minItemPixelWidth}, ${itemMaxPixelWidth}), 1fr))`
 
   return (
     <div
       style={{
-        display: "grid",
-        width: "100%",
-        gridTemplateColumns: `repeat(auto-fit, minmax(max(${minItemPixelWidth}, ${itemMaxPixelWidth}), 1fr))`,
         gridGap: gap,
+        gridTemplateColumns: gridTemplateColumns,
       }}
+      className={twMerge(`grid w-full`, className)}
       {...props}
     >
       {children}

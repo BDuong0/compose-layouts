@@ -1,12 +1,13 @@
 import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
-type NestedTwoColumnLayoutProps = {
+interface NestedTwoColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   layoutLevel: "nested";
   maxWidth?: never;
   children: ReactNode;
 };
 
-type RootTwoColumnLayoutProps = {
+interface RootTwoColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   layoutLevel: "root";
   maxWidth?: string;
   children: ReactNode;
@@ -21,16 +22,19 @@ interface ColumnProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
 export function TwoColumnLayout({
   layoutLevel,
   maxWidth = "1700px",
+  className = "",
   children,
+  ...props
 }: NestedTwoColumnLayoutProps | RootTwoColumnLayoutProps) {
   return (
     <div
       style={{ maxWidth: layoutLevel == "root" ? `${maxWidth}` : "none" }}
       className={
         layoutLevel == "root"
-          ? "mx-auto flex w-dvw flex-wrap"
-          : "flex w-full flex-wrap"
+          ? twMerge("mx-auto flex w-dvw flex-wrap", className)
+          : twMerge("flex w-full flex-wrap", className)
       }
+      {...props}
     >
       {children}
     </div>
@@ -41,6 +45,7 @@ export function TwoColumnLayout({
 const LeftColumn = ({
   columnPercent = 50,
   minWidth = "0",
+  className = "",
   children,
   ...props
 }: ColumnProps) => {
@@ -49,8 +54,8 @@ const LeftColumn = ({
       style={{
         flexBasis: `${columnPercent}%`,
         minWidth: `${minWidth}`,
-        flexGrow: 1,
       }}
+      className = {twMerge("grow", className)}
       {...props}
     >
       {children}
@@ -61,6 +66,7 @@ const LeftColumn = ({
 const RightColumn = ({
   columnPercent = 50,
   minWidth = "0",
+  className = "",
   children,
   ...props
 }: ColumnProps) => {
@@ -69,8 +75,8 @@ const RightColumn = ({
       style={{
         flexBasis: `${columnPercent}%`,
         minWidth: `${minWidth}`,
-        flexGrow: 1,
       }}
+      className = {twMerge("grow", className)}
       {...props}
     >
       {children}

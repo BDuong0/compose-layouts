@@ -1,6 +1,7 @@
 import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
-type ThreeSectionLayoutProps = {
+interface ThreeSectionLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   maxWidth?: string;
   children: ReactNode;
 };
@@ -11,10 +12,11 @@ interface ColumnProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
 
 export function ThreeSectionLayout({
   maxWidth = "1600px",
+  className = "",
   children,
 }: ThreeSectionLayoutProps) {
   return (
-    <div style={{ maxWidth: `${maxWidth}` }} className="mx-auto flex flex-col">
+    <div style={{ maxWidth: `${maxWidth}` }} className={twMerge("mx-auto flex flex-col", className)}>
       {children}
     </div>
   );

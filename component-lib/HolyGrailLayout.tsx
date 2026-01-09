@@ -1,6 +1,7 @@
 import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
 
 import * as stylex from "@stylexjs/stylex";
+import { twMerge } from "tailwind-merge";
 
 const styles = stylex.create({
   main: {
@@ -37,56 +38,54 @@ const styles = stylex.create({
   },
 });
 
-type HolyGrailLayoutProps = {
+interface HolyGrailLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   maxWidth?: string;
   children: ReactNode;
 };
 
-interface HolyGrailSectionProps
-  extends ComponentPropsWithoutRef<"div">,
-    AriaAttributes {
+interface HolyGrailSectionProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   children: ReactNode;
 }
 
-export function HolyGrailLayout({ children }: HolyGrailLayoutProps) {
-  return <div {...stylex.props(styles.main)}>{children}</div>;
+export function HolyGrailLayout({ children, ...props }: HolyGrailLayoutProps) {
+  return <div {...stylex.props(styles.main)} {...props}>{children}</div>;
 }
 
-const Header = ({ children, ...props }: HolyGrailSectionProps) => {
+const Header = ({ children, className="", ...props }: HolyGrailSectionProps) => {
   return (
-    <div style={{ gridArea: "header" }} {...props}>
+    <div className={twMerge("row-[header/header] col-[header/header]", className)} {...props}>
       {children}
     </div>
   );
 };
 
-const Left = ({ children, ...props }: HolyGrailSectionProps) => {
+const Left = ({ children, className="", ...props }: HolyGrailSectionProps) => {
   return (
-    <div style={{ gridArea: "left" }} {...props}>
+    <div className={twMerge("row-[left/left] col-[left/left]", className)} {...props}>
+      {children}
+    </div>
+  ); 
+};
+
+const Content = ({ children, className="", ...props }: HolyGrailSectionProps) => {
+  return (
+    <div className={twMerge("row-[content/content] col-[content/content]", className)} {...props}>
+      {children}
+    </div> 
+  );
+};
+
+const Right = ({ children, className="", ...props }: HolyGrailSectionProps) => {
+  return (
+    <div className={twMerge("row-[right/right] col-[right/right]", className)} {...props}>
       {children}
     </div>
   );
 };
 
-const Content = ({ children, ...props }: HolyGrailSectionProps) => {
+const Footer = ({ children, className="", ...props }: HolyGrailSectionProps) => {
   return (
-    <div style={{ gridArea: "content" }} {...props}>
-      {children}
-    </div>
-  );
-};
-
-const Right = ({ children, ...props }: HolyGrailSectionProps) => {
-  return (
-    <div style={{ gridArea: "right" }} {...props}>
-      {children}
-    </div>
-  );
-};
-
-const Footer = ({ children, ...props }: HolyGrailSectionProps) => {
-  return (
-    <div style={{ gridArea: "footer" }} {...props}>
+    <div className={twMerge("row-[footer/footer] col-[footer/footer]", className)} {...props}>
       {children}
     </div>
   );

@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
+import { AriaAttributes, ComponentPropsWithoutRef, ReactNode } from "react";
 
 import * as stylex from "@stylexjs/stylex";
+import { twMerge } from "tailwind-merge";
 
 type BaseBentoGridProps = {
   numOfItems: 5 | 6 | 7;
@@ -23,7 +24,7 @@ interface BentoGridWithSevenItemsProps {
   layoutNum: 1 | 2;
 }
 
-type BentoGridItemProps = {
+interface BentoGridItemProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   children: ReactNode;
 };
 
@@ -133,57 +134,57 @@ export function BentoGrid({
   );
 }
 
-const ItemOne = ({ children }: BentoGridItemProps) => {
+const ItemOne = ({ children, className="", ...props }: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "one" }} className="bg-red-300">
+    <div className={twMerge(`bg-red-300 row-[one/one] col-[one/one]`, className)} {...props}>
       {children}
     </div>
   );
 };
 
-const ItemTwo = ({ children }: BentoGridItemProps) => {
+const ItemTwo = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "two" }} className="bg-blue-300">
+    <div className={twMerge(`bg-blue-300 row-[two/two] col-[two/two]`, className)}>
       {children}
     </div>
   );
 };
 
-const ItemThree = ({ children }: BentoGridItemProps) => {
+const ItemThree = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "three" }} className="bg-green-300">
+    <div className={twMerge(`bg-green-300 row-[three/three] col-[three/three]`, className)} {...props}>
       {children}
     </div>
   );
 };
 
-const ItemFour = ({ children }: BentoGridItemProps) => {
+const ItemFour = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "four" }} className="bg-yellow-300">
+    <div className={twMerge(`bg-yellow-300 row-[four/four] col-[four/four]`, className)} {...props}>
       {children}
     </div>
   );
 };
 
-const ItemFive = ({ children }: BentoGridItemProps) => {
+const ItemFive = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "five" }} className="bg-orange-300">
+    <div className={twMerge(`bg-orange-300 row-[five/five] col-[five/five]`, className)} {...props}>
       {children}
     </div>
   );
 };
 
-const ItemSix = ({ children }: BentoGridItemProps) => {
+const ItemSix = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "six" }} className="bg-teal-400">
+    <div className={twMerge(`bg-teal-400 row-[six/six] col-[six/six]`, className)} {...props}>
       {children}
     </div>
   );
 };
 
-const ItemSeven = ({ children }: BentoGridItemProps) => {
+const ItemSeven = ({ children, className="", ...props}: BentoGridItemProps) => {
   return (
-    <div style={{ gridArea: "seven" }} className="bg-amber-900">
+    <div className={twMerge(`bg-amber-900 row-[seven/seven] col-[seven/seven]`, className)} {...props}>
       {children}
     </div>
   );

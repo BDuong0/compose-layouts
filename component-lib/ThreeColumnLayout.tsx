@@ -1,4 +1,5 @@
-import { AriaAttributes, ComponentPropsWithoutRef, createContext, CSSProperties, ReactNode, useContext } from "react";
+import { AriaAttributes, ComponentPropsWithoutRef, createContext, ReactNode, useContext } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface NestedThreeColumnLayoutProps extends ComponentPropsWithoutRef<"div">, AriaAttributes {
   layoutLevel: "nested";
@@ -29,27 +30,18 @@ export function ThreeColumnLayout({
   layoutLevel,
   gap = "0px",
   maxWidth = "1700px",
+  className = "",
   children,
   ...props
 }: NestedThreeColumnLayoutProps | RootThreeColumnLayoutProps) {
-  
-  const baseLayoutStyles : CSSProperties = {
-    display: "flex",
-    width: "100%",
-    gap: gap,
-    flexWrap: "wrap",
-    maxWidth: "none"
-  }
-
-  const rootLayoutStyles : CSSProperties = {
-    marginInline: "auto",
-    maxWidth: maxWidth
-  }
+  const baseLayoutStyles = "flex w-full flex-wrap max-w-none"
+  const rootLayoutStyles = "flex w-full flex-wrap mx-auto"
   
   return (
     <ThreeColumnContext.Provider value={{gap: gap}}>
       <div
-        style={layoutLevel == "root" ? {...baseLayoutStyles, ...rootLayoutStyles} : {...baseLayoutStyles,} }
+        style={layoutLevel == "root" ? {gap: gap, maxWidth: maxWidth} : {gap: gap} }
+        className={layoutLevel == "root" ? twMerge(baseLayoutStyles, className) : twMerge(rootLayoutStyles, className)}
         {...props}
       >
         {children}
@@ -62,6 +54,7 @@ export function ThreeColumnLayout({
 const LeftColumn = ({
   columnPercent = 33.33,
   minWidth = "33ch",
+  className = "",
   children,
   ...props
 }: ColumnProps) => {
@@ -72,8 +65,8 @@ const LeftColumn = ({
       style={{
         flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
-        flexGrow: 1,
       }}
+      className={twMerge("grow", className)}
       {...props}
     >
       {children}
@@ -84,6 +77,7 @@ const LeftColumn = ({
 const MiddleColumn = ({
   columnPercent = 33.33,
   minWidth = "33ch",
+  className = "",
   children,
   ...props
 }: ColumnProps) => {
@@ -94,8 +88,8 @@ const MiddleColumn = ({
       style={{
         flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
-        flexGrow: 1,
       }}
+      className={twMerge("grow", className)}
       {...props}
     >
       {children}
@@ -106,6 +100,7 @@ const MiddleColumn = ({
 const RightColumn = ({
   columnPercent = 33.33,
   minWidth = "33ch",
+  className = "",
   children,
   ...props
 }: ColumnProps) => {
@@ -116,8 +111,8 @@ const RightColumn = ({
       style={{
         flexBasis: `calc(${columnPercent}% - (${gap} * 2 / 3))`,
         minWidth: `${minWidth}`,
-        flexGrow: 1,
       }}
+      className={twMerge("grow", className)}
       {...props}
     >
       {children}
