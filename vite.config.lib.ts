@@ -5,10 +5,13 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   build: {
+    copyPublicDir: false,
+    emptyOutDir: false,
     lib: {
       entry: path.resolve(__dirname, 'component-lib/index.ts'),
-      name: 'compose-layouts',
-      formats: ['es']
+      name: "compose-layouts",
+      formats: ['es'],
+      fileName: "compose-layouts"
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
