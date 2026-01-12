@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { globSync } from 'glob';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
